@@ -8,9 +8,16 @@ This plugin manages Wordpress taxonomies and modifies url structure based on tax
 
 == Description ==
 
-<p>Taxonomic SEO Permalinks is a simple plugin that allows you to create SEO urls based on custom taxonomies in WordPress. Let us understand with the help of an example, what we are trying to achieve with this plugin.</p><p>Consider a university website want to build a website for announcing results. The results are announced every six months (summer 2010, winter 2010, …) for various courses (BSc, BTech, …) and for various semesters (final year, second semester, …).</p><p>What we want is SEO url with the help of custom WordPress taxonomies, viz., Season, Course and Semester which will look something like this:</p>
+Taxonomic SEO Permalinks is a simple plugin that allows you to create SEO urls based on custom taxonomies in WordPress. Let us understand with the help of an example, what we are trying to achieve with this plugin.
+
+Consider a university website want to build a website for announcing results. The results are announced every six months (summer 2010, winter 2010, …) for various courses (BSc, BTech, …) and for various semesters (final year, second semester, …).
+
+What we want is SEO url with the help of custom WordPress taxonomies, viz., Season, Course and Semester which will look something like this:
+
 <code>http://example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
-<p>which should be configurable by the user like</p>
+
+which should be configurable by the user like
+
 <code>/%season%/%course%/%semester%/%postname%/</code>
 
 == Installation ==
