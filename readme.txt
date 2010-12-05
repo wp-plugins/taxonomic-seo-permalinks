@@ -3,6 +3,8 @@ Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
 Tested up to: 3.0.2
+Stable tag: 0.1.0 Beta
+Donate Link: http://rakesh.tembhurne.com/projects/taxonomic-seo-permalinks/
 
 This plugin manages Wordpress taxonomies and modifies url structure based on taxonomies.
 
@@ -14,7 +16,7 @@ Consider a university website want to build a website for announcing results. Th
 
 What we want is SEO url with the help of custom WordPress taxonomies, viz., Season, Course and Semester which will look something like this:
 
-<code>http://example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
+<code>example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
 
 which should be configurable by the user like
 
@@ -49,3 +51,10 @@ For example you want taxonomies "Company", "Model", "Color" and want your urls s
 
 = 0.1.0 Beta =
 * Need to edit taxonomies in php file of plugin
+
+== Upgrade Notice ==
+
+Upgrades not available
+
+== Screenshots ==
+Not available
