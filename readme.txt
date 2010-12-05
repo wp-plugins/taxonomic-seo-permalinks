@@ -3,8 +3,7 @@ Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
 Tested up to: 3.0.2
-Stable tag: 0.1.0 Beta
-Donate Link: http://rakesh.tembhurne.com/projects/taxonomic-seo-permalinks/
+Donate link: http://rakesh.tembhurne.com/
 
 This plugin manages Wordpress taxonomies and modifies url structure based on taxonomies.
 
@@ -12,11 +11,11 @@ This plugin manages Wordpress taxonomies and modifies url structure based on tax
 
 Taxonomic SEO Permalinks is a simple plugin that allows you to create SEO urls based on custom taxonomies in WordPress. Let us understand with the help of an example, what we are trying to achieve with this plugin.
 
-Consider a university website want to build a website for announcing results. The results are announced every six months (summer 2010, winter 2010, …) for various courses (BSc, BTech, …) and for various semesters (final year, second semester, …).
+Consider a university website want to build a website for announcing results. The results are announced every six months (summer 2010, winter 2010, ...) for various courses (BSc, BTech, ...) and for various semesters (final year, second semester, ...).
 
 What we want is SEO url with the help of custom WordPress taxonomies, viz., Season, Course and Semester which will look something like this:
 
-<code>example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
+<code>http://example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
 
 which should be configurable by the user like
 
@@ -24,12 +23,13 @@ which should be configurable by the user like
 
 == Installation ==
 
-Installation from zip file:
+= Installation from zip file =
+
 1. Go to Admin > Plugins > Add News  and click on upload link.
 2. Browse the zip file and click upload
 3. Activate the plugin
 
-Manual Installation:
+= Manual Installation =
 
 1. Download the latest copy of Taxonomic SEO Permalink in .zip format
 2. Extract the zip file and Upload to the '/wp-content/plugins/' directory
@@ -45,16 +45,9 @@ You need to change the settings in the taxonomicseopermalink.php file for your t
 
 It looks for the structure of url entered and relates with the taxonomic seo structure you set. if it doesn't match the structure you set, it works the same way, it was working without the plugin. 
 
-For example you want taxonomies "Company", "Model", "Color" and want your urls something like example.com/dell/inspiron/ruby-red/heavy-discount-offer, you can use this plugin to do so. If the entered url does not match with the structure you set, it is handled by default way (like regular example.com/category-name/post-name
+For example you want taxonomies "Company", "Model", "Color" and want your urls something like example.com/dell/inspiron/ruby-red/heavy-discount-offer, you can use this plugin to do so. If the entered url does not match with the structure you set, it is handled by default way (like regular example.com/category-name/post-name).
 
 == Changelog ==
 
 = 0.1.0 Beta =
 * Need to edit taxonomies in php file of plugin
-
-== Upgrade Notice ==
-
-Upgrades not available
-
-== Screenshots ==
-Not available
