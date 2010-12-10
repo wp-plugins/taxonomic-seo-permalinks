@@ -35,9 +35,19 @@ which should be configurable by the user like
 2. Extract the zip file and Upload to the '/wp-content/plugins/' directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 
-After Installation: 
+= After Installation =
 
-You need to change the settings in the taxonomicseopermalink.php file for your taxonomies
+You need to change the settings in the class.tsp.php file for your taxonomies on line 20 which looks similar to this:
+
+public $taxonomy_terms 	= array("Season", "Course", "Semester");
+
+Change the content of the array with the custom taxonomies you would like, in SEQUENCE, from left to right, and your permalink structure would be update automatically. For above example, it would be:
+
+/%season%/%course%/%semester%/%postname%/
+
+= NOTE =
+
+This plugin won't work with default permalink structure. Under Settings >> Permalink opt for custom permalinks and change it to /%category%/%postname%/. Even if you set this permalink, the TSP plugin will change this permalink with Taxonomic SEO Permalinks.
 
 == Frequently Asked Questions ==
 
