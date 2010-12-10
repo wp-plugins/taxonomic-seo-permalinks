@@ -2,7 +2,8 @@
 Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
-Tested up to: 3.0.2
+Tested up to: 3.0.3
+Stable tag: TSPv0.1.1
 Donate link: http://rakesh.tembhurne.com/
 
 This plugin manages Wordpress taxonomies and modifies url structure based on taxonomies.
