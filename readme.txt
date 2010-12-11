@@ -3,7 +3,7 @@ Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
 Tested up to: 3.0.3
-Stable tag: TSPv0.1.1
+Stable tag: TSPv0.1.3
 Donate link: http://rakesh.tembhurne.com/
 
 This plugin manages Wordpress taxonomies and modifies url structure based on taxonomies.
@@ -59,6 +59,15 @@ It looks for the structure of url entered and relates with the taxonomic seo str
 For example you want taxonomies "Company", "Model", "Color" and want your urls something like example.com/dell/inspiron/ruby-red/heavy-discount-offer, you can use this plugin to do so. If the entered url does not match with the structure you set, it is handled by default way (like regular example.com/category-name/post-name).
 
 == Changelog ==
+= 0.1.3 =
+Works on WP Network Site.
+
+= 0.1.2 =
+Solved minor bugs
+
+= 0.1.1 =
+Solved url parsing problem
+
 
 = 0.1.0 Beta =
 * Need to edit taxonomies in php file of plugin

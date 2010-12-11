@@ -3,7 +3,7 @@
 Plugin Name: Taxonomic SEO Permalink
 Plugin URI: http://rakesh.tembhurne.com/projects/taxonomic-seo-permalinks/
 Description: Creates Taxonomies and changes url structure for displaying results
-Version: 0.1.1
+Version: 0.1.3
 Author: Rakesh Tembhurne
 Author URI: http://rakesh.tembhurne.com
 License: GPL2

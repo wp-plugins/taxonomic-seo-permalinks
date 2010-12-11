@@ -101,9 +101,18 @@ class TaxonomicSeoPermalink
 	 */
 	function write_link_addresses($permalink, $post_id, $leavename)
 	{
+		global $blog_id;
 		// Get post
 		$post = get_post($post_id);
-		if (!$post) return $permalink;		
+		if (!$post) return $permalink;
+		
+		// MULTISITE main blog
+		
+		if ( is_multisite() && $blog_id == SITE_ID_CURRENT_SITE )
+		{
+			$primary_url = get_bloginfo("wpurl");
+			$permalink = str_replace($primary_url, "$primary_url/blog", $permalink);
+		}
 		
 		foreach($this->taxonomy_terms as $term)
 		{
