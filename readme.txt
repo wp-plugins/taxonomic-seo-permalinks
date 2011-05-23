@@ -44,7 +44,7 @@ NOTE: Currently this plugin do not help you to create custom taxonomies. You wil
 
 = After Installation =
 
-Go to Admin Menu >> Settings >> Permalink and change the permalink structure having your custom taxonomy.
+Go to Admin Menu >> Settings >> Permalink and change the permalink structure having your custom taxonomy. For example:
 /%season%/%course%/%semester%/%postname%/
 
 == Frequently Asked Questions ==
