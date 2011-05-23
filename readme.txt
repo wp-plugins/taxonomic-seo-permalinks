@@ -2,25 +2,31 @@
 Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
-Tested up to: 3.0.3
-Stable tag: TSPv0.1.3
+Tested up to: 3.1.2
+Stable tag: tsp-0.2.0
 Donate link: http://rakesh.tembhurne.com/
 
-This plugin manages Wordpress taxonomies and modifies url structure based on taxonomies.
+This plugin helps you to set your permalinks by using custom taxonomies just like you use %category% or %postname% in your permalink structure. 
 
 == Description ==
 
-Taxonomic SEO Permalinks is a simple plugin that allows you to create SEO urls based on custom taxonomies in WordPress. Let us understand with the help of an example, what we are trying to achieve with this plugin.
+Taxonomic SEO Permalinks is a simple plugin that allows you to create SEO urls based on custom taxonomies in WordPress. I personally wanted to use custom taxonomies in URLs just like built-in taxonomies like category. WordPress does support some options that helps in 'rewrite' of permalinks, while creating custom taxonomies. However, I found this thing is not actually working, as I tried and tested.
+
+So I have created this plugin to fix this issue. This plugin does two major works. First, it modifies links to posts at all the places in blog and second, it helps in parsing the URLs. If you did not understand what I just said, leave it and read below.
+
+Let me explain you with the help of an example, what we are trying to achieve with this plugin.
 
 Consider a university website want to build a website for announcing results. The results are announced every six months (summer 2010, winter 2010, ...) for various courses (BSc, BTech, ...) and for various semesters (final year, second semester, ...).
 
-What we want is SEO url with the help of custom WordPress taxonomies, viz., Season, Course and Semester which will look something like this:
+So we can create three custom taxonomies viz. Season, Course and Semester. What we want is SEO url with the help of custom WordPress taxonomies that will look like:
 
 <code>http://example.com/winter-2010/bsc/final-year/list-of-passed-candidates</code>
 
-which should be configurable by the user like
+Which you can set in your regular permalink structure options just like 
 
 <code>/%season%/%course%/%semester%/%postname%/</code>
+
+NOTE: Currently this plugin do not help you to create custom taxonomies. You will need to use another plugin to create custom taxonomies.
 
 == Installation ==
 
@@ -38,12 +44,7 @@ which should be configurable by the user like
 
 = After Installation =
 
-You need to change the settings in the class.tsp.php file for your taxonomies on line 20 which looks similar to this:
-
-public $taxonomy_terms 	= array("Season", "Course", "Semester");
-
-Change the content of the array with the custom taxonomies you would like, in SEQUENCE, from left to right, and your permalink structure would be update automatically. For above example, it would be:
-
+Go to Admin Menu >> Settings >> Permalink and change the permalink structure having your custom taxonomy.
 /%season%/%course%/%semester%/%postname%/
 
 = NOTE =
@@ -59,6 +60,12 @@ It looks for the structure of url entered and relates with the taxonomic seo str
 For example you want taxonomies "Company", "Model", "Color" and want your urls something like example.com/dell/inspiron/ruby-red/heavy-discount-offer, you can use this plugin to do so. If the entered url does not match with the structure you set, it is handled by default way (like regular example.com/category-name/post-name).
 
 == Changelog ==
+
+= 0.1.5 =
+Did some major changes to the code.
+No need to manage sequence of taxonomy.
+Should work on Network blog, but not tested yet.
+
 = 0.1.3 =
 Works on WP Network Site.
 
@@ -67,7 +74,6 @@ Solved minor bugs
 
 = 0.1.1 =
 Solved url parsing problem
-
 
 = 0.1.0 Beta =
 * Need to edit taxonomies in php file of plugin
