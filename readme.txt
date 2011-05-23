@@ -61,7 +61,7 @@ For example you want taxonomies "Company", "Model", "Color" and want your urls s
 
 == Changelog ==
 
-= 0.1.5 =
+= 0.2.0 =
 Did some major changes to the code.
 No need to manage sequence of taxonomy.
 Should work on Network blog, but not tested yet.
