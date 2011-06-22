@@ -3,7 +3,7 @@ Contributors: tj2point0
 Tags: Permalink, Taxonomy, SEO
 Requires at least: 3.0.1
 Tested up to: 3.1.2
-Stable tag: tsp-0.2.0
+Stable tag: tsp-0.2.1
 Donate link: http://rakesh.tembhurne.com/
 
 This plugin helps you to set your permalinks by using custom taxonomies just like you use %category% or %postname% in your permalink structure. 
@@ -55,6 +55,9 @@ Go to Admin Menu >> Settings >> Permalink and change the permalink structure hav
 1. It helps in parsing the URLs according to your permalink structure
 
 == Changelog ==
+
+= 0.2.1 =
+Uploaded the missing code.
 
 = 0.2.0 =
 Did some major changes to the code.

@@ -3,7 +3,7 @@
 Plugin Name: Taxonomic SEO Permalink
 Plugin URI: http://rakesh.tembhurne.com/projects/taxonomic-seo-permalinks/
 Description: Creates Taxonomies and changes url structure for displaying results
-Version: 0.2.0
+Version: 0.2.1
 Author: Rakesh Tembhurne
 Author URI: http://rakesh.tembhurne.com
 License: GPL2
@@ -23,62 +23,72 @@ License: GPL2
     along with this program.
 */
 
-include (dirname(__FILE__) . '/class.tsp.php');
+add_filter('rewrite_rules_array','tsp_createRewriteRules');
+add_filter('wp_loaded','flushRules');
+add_filter('post_link', 'tsp_write_link_addresses', 10, 3);
+add_filter('post_type_link', 'tsp_write_link_addresses', 10, 3);
 
-
-if ( class_exists("TaxonomicSeoPermalink") ) 
-{
-	// define functions
-	function taxonomic_seo_permalink_init()
-	{
-		
-		$tsp = new TaxonomicSeoPermalink();
-		// create post type
-		//$tsp->create_post_types();
-		// create taxonomies
-		$tsp->create_taxonomies();
-	}
-	
-	function taxonomic_seo_permalink($permalink, $post_id, $leavename)
-	{
-		$tsp = new TaxonomicSeoPermalink();
-		// if user is ready with permalink structure
-		if ( $tsp->is_set_permalink_structure($permalink) )
-		{
-			// rewrite all links
-			$permalink = $tsp->write_link_addresses($permalink, $post_id, $leavename);
-			// parse entered url	
-		}
-		
-		return $permalink;
-	}
-
-	function tsp_add_rewrite_tags()
-	{
-		$tsp = new TaxonomicSeoPermalink();
-		
-		//$tsp->add_tsp_rewrite_rules();
-		$tsp->add_tsp_rewrite_rules();
-	}
-	
-	// Remember to flush_rules() when adding rules
-	function flushRules(){
-		global $wp_rewrite;
-		$wp_rewrite->flush_rules();
-	}
+// Remember to flush_rules() when adding rules
+function flushRules(){
+	global $wp_rewrite;
+   	$wp_rewrite->flush_rules();
 }
 
-//Actions and Filters	
-
-	//Actions
-	//add_action('init','flushRules');
-	add_action('init', 'taxonomic_seo_permalink_init');	
-	add_action('generate_rewrite_rules', 'tsp_add_rewrite_tags');
-	//Filters
+function tsp_createRewriteRules($rewrite) {
+	global $wp_rewrite;
 	
-	add_filter('post_link', 'taxonomic_seo_permalink', 10, 3);
-	add_filter('post_type_link', 'taxonomic_seo_permalink', 10, 3);
+	// loop through custom taxonomies
+		// create tokens from each custom taxonomy
+	$args = array(
+		'public'   => true,
+		'_builtin' => false 
+	);
+	$output 			= 'names'; // or objects
+	$operator 			= 'and'; // 'and' or 'or'
+	$custom_taxonomies 	= get_taxonomies($args, $output, $operator); 
+	if ($custom_taxonomies) {
+		foreach ($custom_taxonomies as $tax_name ) {
+			$tax_token = '%'.$tax_name.'%';
+			$wp_rewrite->add_rewrite_tag($tax_token, '(.+)', $tax_name.'=');
+		}
+	}
 	
+	// read current permalink structure and set the same structre
+	$keywords_rewrite = $wp_rewrite->generate_rewrite_rules($wp_rewrite->root.$wp_rewrite->permalink_structure);
+	return ( $rewrite + $keywords_rewrite );
+}
 
+function tsp_write_link_addresses($permalink, $post_id, $leavename)
+{
+	global $blog_id;
+	global $wp_rewrite;
+	// this is user's permalink structure set in options
+	$permastruct = $wp_rewrite->permalink_structure;
+	
+	$args = array(
+		'public'   => true,
+		'_builtin' => false 
+	);
+	$output 			= 'names'; // or objects
+	$operator 			= 'and'; // 'and' or 'or'
+	$custom_taxonomies 	= get_taxonomies($args, $output, $operator);
+	
+	if ($custom_taxonomies) {
+		foreach ($custom_taxonomies as $tax_name ) {
+			$tax_token = '%'.$tax_name.'%';
+			
+			$tax_terms = get_the_terms( $post->id, $tax_name );
+			//var_dump($tax_terms);
+			if ( !empty($tax_terms) )
+			{
+				foreach($tax_terms as $a_term)
+				{
+					$permalink = str_replace($tax_token, $a_term->slug, $permalink);
+					break;
+				}
+			} else {$permalink = str_replace($tax_token, 'no-'.$tax_name, $permalink); }
+		}
+	}
 
-?>
+	return $permalink;
+}
